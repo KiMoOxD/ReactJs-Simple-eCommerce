@@ -19,7 +19,7 @@ export default function Product({ product }) {
     } else if (btnContent === 'Added to Cart' && (found === true)) {
       setClasses('border rounded-full text-white bg-stone-900 border-black text-sm w-fit px-4 py-1.5 transition pointer-events-none')
     }
-  }, [cartItems])
+  }, [cartItems]) // eslint-disable-line react-hooks/exhaustive-deps
 
   function handeAddtoCart() {
     setBtnContent('Added to Cart')
