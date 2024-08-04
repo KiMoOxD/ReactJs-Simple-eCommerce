@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useWishList } from "../context/WishListContext";
 
 
+let WishClasses;
 
 
 export default function Product({ product }) {
@@ -23,14 +24,14 @@ export default function Product({ product }) {
     }
   }, [cartItems]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  let WishClasses;
 
   if (wishListItems.some(item => item.id === product.id)) {
     WishClasses = "absolute right-5 top-5 p-2 rounded-full  text-xl cursor-pointer bg-red-500 text-white transition"
   } else {
-    WishClasses = "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer hover:bg-red-500 hover:text-white transition"
+    WishClasses = "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer lg:hover:bg-red-500 lg:hover:text-white transition"
   }
 
+  console.log('product renderd')
 
   function handeAddtoCart() {
     setBtnContent('Added to Cart')
@@ -39,7 +40,7 @@ export default function Product({ product }) {
 
   return (
     <div className="p-2 flex flex-col gap-2 bg-stone-50 relative group cursor-pointer">
-      <div className={WishClasses} onClick={() => toggleWishList(product.id)}>
+      <div  className={WishClasses} onClick={() => toggleWishList(product.id)}>
         <CiHeart />
       </div>
       <div className="h-72 flex justify-center items-center bg-white">

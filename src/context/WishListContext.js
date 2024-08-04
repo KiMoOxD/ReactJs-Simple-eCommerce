@@ -6,7 +6,7 @@ const WishListContext = createContext();
 async function fetchData() {
     let res = await fetch('https://fakestoreapi.com/products')
     let products = await res.json()
-    console.log(products)
+    // console.log(products)
     return products
 }
 
@@ -23,7 +23,7 @@ export default function WishListContextProvider({ children }) {
         let foundInWishList = wishListItems.some(item => item.id === id)
         if (foundInWishList) {
             setWishListItems(prev => {
-                return prev.filter(item => item.id !== id)
+                return [...prev.filter(item => item.id !== id)]
             })
         } else {
             let products = await fetchData()

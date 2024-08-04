@@ -11,7 +11,7 @@ export default function WishList() {
           {wishListItems?.map((item) => {
             return <WishListItem key={item.id} id={item.id} title={item.title} price={item.price} image={item.image}/>
           })}
-          {wishListItems.length === 0 && <p className="text-sm absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">You didn't like anything...</p>}
+          {wishListItems.length === 0 && <p className="text-sm absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">Your WishList is empty...</p>}
         </div>
         <div className='flex items-center mt-2 text-sm justify-between'>
         <button 

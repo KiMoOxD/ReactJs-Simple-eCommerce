@@ -9,7 +9,6 @@ export default function Products() {
       let res = await fetch('https://fakestoreapi.com/products')
       let products = await res.json()
       setProducts(products)
-      console.log(products)
     }
     fetchData()
   }, [])

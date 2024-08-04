@@ -13,7 +13,7 @@ export default function Cart() {
           {cartItems?.map((item) => {
             return <CartItem key={item.id} id={item.id} title={item.title} price={item.price} image={item.image} quantity={item.quantity}/>
           })}
-          {cartItems.length === 0 && <p className="text-sm absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">You didn't add anything...</p>}
+          {cartItems.length === 0 && <p className="text-sm absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">Your Cart is empty...</p>}
         </div>
         <div className='flex items-center mt-2 text-sm justify-between'>
           <button className='py-1.5 px-4 border border-stone-500 rounded-full text-sm hover:bg-stone-200 transition'>Checkout</button>
