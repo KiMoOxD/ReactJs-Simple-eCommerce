@@ -6,7 +6,7 @@ export default function WishList() {
 
     let {wishListItems, ClearWishList} = useWishList()
   return (
-    <div className="absolute min-w-80 h-80 border bg-stone-50 p-2 right-[-32px] sm:right-0 top-[155%] rounded"> 
+    <div className="absolute min-w-80 h-80 border bg-stone-50 p-2 right-[-95px] sm:right-0 top-[160%] rounded"> 
         <div className='overflow-y-auto bg-white h-64'>
           {wishListItems?.map((item) => {
             return <WishListItem key={item.id} id={item.id} title={item.title} price={item.price} image={item.image}/>

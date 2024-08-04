@@ -16,7 +16,7 @@ export default function Cart() {
           {cartItems.length === 0 && <p className="text-sm absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">You didn't add anything...</p>}
         </div>
         <div className='flex items-center mt-2 text-sm justify-between'>
-          <button className='py-2 px-4 border border-stone-500 rounded-full  hover:bg-stone-200 transition'>Checkout</button>
+          <button className='py-1.5 px-4 border border-stone-500 rounded-full text-sm hover:bg-stone-200 transition'>Checkout</button>
           <div className='pr-5 flex items-center font-semibold'>Total: <BsCurrencyDollar/>{totalPrice.toFixed(2)}</div>
         </div>
     </div>

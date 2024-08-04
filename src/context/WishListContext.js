@@ -12,7 +12,7 @@ async function fetchData() {
 
 export default function WishListContextProvider({ children }) {
     const [wishListItems, setWishListItems] = useState([]);
-    const [isWishListOpen, setisWishListOpen] = useState(true)
+    const [isWishListOpen, setisWishListOpen] = useState(false)
 
 
     function toggleWishListMenu() {
