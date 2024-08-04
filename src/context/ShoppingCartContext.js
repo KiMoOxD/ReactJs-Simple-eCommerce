@@ -5,7 +5,11 @@ let cartContext = createContext();
 
 let CartContextProvider = ({ children }) => {
     let [cartItems, setCartItems] = useState([])
-    //console.log(cartItems)
+    let [isCartOpen, setIsCartOpen] = useState(false)
+
+    function toggleCart() {
+        setIsCartOpen(prev => !prev)
+    }
 
     async function addToCart(id) {
         
@@ -52,6 +56,8 @@ let CartContextProvider = ({ children }) => {
         increaseQ,
         decreaseQ,
         removeItem,
+        isCartOpen,
+        toggleCart
     }}
     >
         {children}

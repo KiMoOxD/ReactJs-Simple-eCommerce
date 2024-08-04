@@ -10,11 +10,10 @@ export default function CartItem({ id, title, price, image, quantity }) {
   let {increaseQ, decreaseQ, removeItem} = useCart()
   return (
     <div className='flex items-center gap-2 py-1'>
-      {/* <img className='size-9 object-contain' src={image} alt="" /> */}
-      <div className='size-9 bg-contain bg-center block bg-no-repeat' style={{backgroundImage: `url(${image})`}}></div>
+      <div className='size-10 bg-contain bg-center block bg-no-repeat' style={{backgroundImage: `url(${image})`}}></div>
       <div className='w-full overflow-x-hidden'>
         <div className='flex items-center my-1 gap-2'>
-            <p className='w-[213px] text-sm truncate'>{title}</p>
+            <p className='max-w-[237px] flex-grow text-sm truncate'>{title}</p>
             <CiTrash onClick={() => removeItem(id)} className='text-lg'/>
         </div>
         <div className='flex'>

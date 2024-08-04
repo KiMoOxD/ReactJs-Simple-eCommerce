@@ -2,12 +2,14 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { useCart } from "../context/ShoppingCartContext";
 import { useEffect, useState } from "react";
+import { useWishList } from "../context/WishListContext";
 
 
 
 
 export default function Product({ product }) {
   let { cartItems, addToCart, removeItem } = useCart()
+  let { wishListItems, toggleWishList } = useWishList()
   let [btnContent, setBtnContent] = useState('Add to Cart')
   let [classes, setClasses] = useState('border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition');
 
@@ -21,17 +23,27 @@ export default function Product({ product }) {
     }
   }, [cartItems]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  let WishClasses;
+
+  if (wishListItems.some(item => item.id === product.id)) {
+    WishClasses = "absolute right-5 top-5 p-2 rounded-full  text-xl cursor-pointer bg-red-500 text-white transition"
+  } else {
+    WishClasses = "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer hover:bg-red-500 hover:text-white transition"
+  }
+
+
   function handeAddtoCart() {
     setBtnContent('Added to Cart')
-  }  
+  }
+
 
   return (
     <div className="p-2 flex flex-col gap-2 bg-stone-50 relative group cursor-pointer">
-      <div className="absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer hover:bg-red-500 hover:text-white transition">
-        <CiHeart className="" />
+      <div className={WishClasses} onClick={() => toggleWishList(product.id)}>
+        <CiHeart />
       </div>
       <div className="h-72 flex justify-center items-center bg-white">
-        <img className="max-w-full w-40 group-hover:scale-110 group-hover:animate-pulse transition" alt={product.title} src={product.image} />
+        <img className="max-w-full w-40 group-hover:scale-110 transition" alt={product.title} src={product.image} />
       </div>
       <div className="flex gap-1 text-sm">
         <p className="flex-grow truncate">{product.title}</p>
