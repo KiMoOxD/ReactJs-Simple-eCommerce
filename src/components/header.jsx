@@ -7,14 +7,17 @@ import Cart from "./cart";
 import { useCart } from "../context/ShoppingCartContext";
 import WishList from "./wishList";
 import { useWishList } from "../context/WishListContext";
+import { useMenu } from "../context/MenuContext";
 
 export default function Header() {
   let { cartItems, isCartOpen, toggleCart } = useCart();
   let { wishListItems, isWishListOpen, toggleWishListMenu } = useWishList();
+  let { isMenuOpen, toggleMenu } = useMenu()
+
 
   return (
     <div className="flex sticky top-0 z-40 bg-white mx-auto justify-between items-center py-2 px-4 2xl:px-0">
-      <h1>Z-Shop</h1>
+      <h1 className="font-['Edu_AU_VIC_WA_NT_Hand']">Shooopy!</h1>
       <ul className="hidden lg:flex gap-2 *:w-24 *:h-9 *:flex *:justify-center *:transition *:cursor-pointer *:items-center">
         <li className="hover:bg-slate-200">Home</li>
         <li className="hover:bg-slate-200">Catalogue</li>
@@ -28,9 +31,8 @@ export default function Header() {
           <BsCalendar2Heart
             className={`text-lg`}
             onClick={() => {
-              if (isCartOpen) {
-                toggleCart();
-              }
+              if (isCartOpen) toggleCart();
+              if (isMenuOpen) toggleMenu();
               toggleWishListMenu();
             }}
           />
@@ -46,9 +48,8 @@ export default function Header() {
         <div className={`relative p-1 rounded-sm`}>
           <IoCartOutline
             onClick={() => {
-              if (isWishListOpen) {
-                toggleWishListMenu();
-              }
+              if (isWishListOpen) toggleWishListMenu();
+              if (isMenuOpen) toggleMenu();
               toggleCart();
             }}
           />
