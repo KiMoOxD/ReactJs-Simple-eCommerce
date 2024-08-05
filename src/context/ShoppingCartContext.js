@@ -12,31 +12,47 @@ let CartContextProvider = ({ children }) => {
     }
 
     async function addToCart(id) {
-        
-        let res = await fetch('https://fakestoreapi.com/products')
-        let products = await res.json()
-        let product = products.find(product => product.id === id)
+            let res = await fetch('https://fakestoreapi.com/products')
+            let products = await res.json()
+            let product = products.find(product => product.id === id)
+             
+            setCartItems(prev => {
+                if (prev.some(item => item.id === id) === false) {
+                    return [...prev, {id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1}]
+                } else {
+                    return [...prev]
+                }
+            })
+
+    }
+
+    function increaseQ(id) {
         setCartItems(prev => {
-            return [...prev, {id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1}]
+            let final = []
+            prev.forEach((product, i, arr) => {
+                if (product.id === id) {
+                    arr[i].quantity = product.quantity+1
+                }
+                final[i] = product
+            })
+            return final
         })
     }
 
-    async function increaseQ(id) {
-        
+    function decreaseQ(id) {
         setCartItems(prev => {
-            let preev = prev.filter((product) => { return product.id !== id})
-            let preevT = prev.find((product) => {return product.id === id})
-            return [...preev, {...preevT, quantity: preevT.quantity+1}]
-        })
-    }
-
-    async function decreaseQ(id) {
-        
-        setCartItems(prev => {
-            let preev = prev.filter((product) => { return product.id !== id})
-            let preevT = prev.find((product) => {return product.id === id})
-            if (preevT.quantity === 1) return [...preev]
-            return [...preev, {...preevT, quantity: preevT.quantity-1}]
+            if (cartItems.find(item => item.id === id)?.quantity === 1) {
+                
+                return prev.filter(item => item.id !== id)
+            }
+            let final = []
+            prev.forEach((product, i, arr) => {
+                if (product.id === id) {
+                    arr[i].quantity = product.quantity-1
+                }
+                final[i] = product
+            })
+            return final
         })
     }
 

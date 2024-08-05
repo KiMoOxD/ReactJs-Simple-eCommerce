@@ -31,8 +31,6 @@ export default function Product({ product }) {
     WishClasses = "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer lg:hover:bg-red-500 lg:hover:text-white transition"
   }
 
-  console.log('product renderd')
-
   function handeAddtoCart() {
     setBtnContent('Added to Cart')
   }

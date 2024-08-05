@@ -6,13 +6,14 @@ import CartContextProvider from './context/ShoppingCartContext'
 import WishListContextProvider from "./context/WishListContext";
 import MenuContextProvider from './context/MenuContext'
 
+
 function App() {
 
   return (
     <WishListContextProvider>
       <CartContextProvider>
         <MenuContextProvider>
-          <div className="max-w-screen-2xl relative mx-auto">
+          <div className="max-w-screen-2xl relative mx-auto" >
             <Header />
             <Hero />
             <Products />

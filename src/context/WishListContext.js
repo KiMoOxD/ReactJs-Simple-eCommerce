@@ -44,8 +44,6 @@ export default function WishListContextProvider({ children }) {
         setWishListItems([])
     }
 
-    console.log(wishListItems)
-
     return <WishListContext.Provider value={{
         wishListItems,
         toggleWishList,
