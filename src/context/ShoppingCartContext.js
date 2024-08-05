@@ -56,8 +56,7 @@ let CartContextProvider = ({ children }) => {
         })
     }
 
-    async function removeItem(id) {
-        
+    function removeItem(id) {
         setCartItems(prev => {
             let preev = prev.filter((product) => { return product.id !== id})
             return preev

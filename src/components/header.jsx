@@ -15,7 +15,7 @@ export default function Header() {
   let { cartItems, isCartOpen, toggleCart } = useCart();
   let { wishListItems, isWishListOpen, toggleWishListMenu } = useWishList();
   let { isMenuOpen, toggleMenu } = useMenu();
-  let [isSearchOpen, setIsSearchOpen] = useState(true);
+  let [isSearchOpen, setIsSearchOpen] = useState(false);
 
   function handleSearchClick() {
     setIsSearchOpen((prev) => !prev);
