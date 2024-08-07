@@ -12,13 +12,14 @@ let CartContextProvider = ({ children }) => {
     }
 
     async function addToCart(id) {
-            let res = await fetch('https://fakestoreapi.com/products')
+            let res = await fetch('https://dummyjson.com/products')
             let products = await res.json()
+            products = products.products
             let product = products.find(product => product.id === id)
              
             setCartItems(prev => {
                 if (prev.some(item => item.id === id) === false) {
-                    return [...prev, {id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1}]
+                    return [...prev, {id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail, quantity: 1}]
                 } else {
                     return [...prev]
                 }

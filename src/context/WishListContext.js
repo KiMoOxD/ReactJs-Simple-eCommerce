@@ -4,10 +4,10 @@ import { useState } from "react";
 const WishListContext = createContext();
 
 async function fetchData() {
-    let res = await fetch('https://fakestoreapi.com/products')
+    let res = await fetch('https://dummyjson.com/products')
     let products = await res.json()
     // console.log(products)
-    return products
+    return products.products
 }
 
 export default function WishListContextProvider({ children }) {
@@ -20,18 +20,16 @@ export default function WishListContextProvider({ children }) {
     }
 
     async function toggleWishList(id) {
-        let foundInWishList = wishListItems.some(item => item.id === id)
-        if (foundInWishList) {
-            setWishListItems(prev => {
+        let products = await fetchData()
+        setWishListItems(prev => {
+            let foundInWishList = prev.some(item => item.id === id)
+            if (foundInWishList) {
                 return [...prev.filter(item => item.id !== id)]
-            })
-        } else {
-            let products = await fetchData()
-            let FavProduct = products.find(item => item.id === id)
-            setWishListItems(prev => {
+            } else {
+                let FavProduct = products.find(item => item.id === id)
                 return [...prev, FavProduct]
-            })
-        }
+            }
+        })
     }
 
     function removeFromWishList(id) {

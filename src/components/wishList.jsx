@@ -9,7 +9,7 @@ export default function WishList() {
     <div className="absolute min-w-80 h-80 border bg-stone-50 p-2 right-[-95px] sm:right-0 top-[160%] rounded"> 
         <div className='overflow-y-auto bg-white h-64'>
           {wishListItems?.map((item) => {
-            return <WishListItem key={item.id} id={item.id} title={item.title} price={item.price} image={item.image}/>
+            return <WishListItem key={item.id} id={item.id} title={item.title} price={item.price} image={item.thumbnail}/>
           })}
           {wishListItems.length === 0 && <p className="text-sm absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">Your WishList is empty...</p>}
         </div>

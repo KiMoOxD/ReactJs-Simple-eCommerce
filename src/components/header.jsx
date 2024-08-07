@@ -10,6 +10,7 @@ import { useWishList } from "../context/WishListContext";
 import { useMenu } from "../context/MenuContext";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   let { cartItems, isCartOpen, toggleCart } = useCart();
@@ -20,22 +21,24 @@ export default function Header() {
   function handleSearchClick() {
     setIsSearchOpen((prev) => !prev);
   }
+
   return (
     <div className="flex sticky top-0 z-40 bg-white mx-auto justify-between items-center py-2 px-4 2xl:px-0">
       <h1 className="font-['Edu_AU_VIC_WA_NT_Hand']">Shooopy!</h1>
       {!isSearchOpen && (
         <ul className="hidden lg:flex gap-2 *:w-24 *:h-9 *:flex *:justify-center *:transition *:cursor-pointer *:items-center">
-          <li className="hover:bg-slate-200">Home</li>
-          <li className="hover:bg-slate-200">Catalogue</li>
-          <li className="hover:bg-slate-200">Collections</li>
-          <li className="hover:bg-slate-200">Popular</li>
-          <li className="hover:bg-slate-200">Contacts</li>
+          <NavLink className="hover:bg-slate-200" to={'/'}><li >Home</li></NavLink>
+          <NavLink className="hover:bg-slate-200" ><li >Catalogue</li></NavLink>
+          <NavLink className="hover:bg-slate-200" ><li >Collections</li></NavLink>
+          <NavLink className="hover:bg-slate-200" ><li >Popular</li></NavLink>
         </ul>
       )}
-      <SearchBar
-        isSearchOpen={isSearchOpen}
-        handleSearchClick={handleSearchClick}
-      />
+      {isSearchOpen && (
+        <SearchBar
+          isSearchOpen={isSearchOpen}
+          handleSearchClick={handleSearchClick}
+        />
+      )}
       <div className="flex gap-3 py-2  text-xl items-center cursor-pointer">
         {!isSearchOpen && <CiSearch onClick={handleSearchClick} />}
         <div className={`relative p-1 rounded-sm`}>
