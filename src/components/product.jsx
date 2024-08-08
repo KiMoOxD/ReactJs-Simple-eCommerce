@@ -42,18 +42,20 @@ export default function Product({ product }) {
   }
 
   return (
-    <Link to={"/products/" + product.id}>
+    
       <div className="p-2 flex flex-col gap-2 bg-stone-50 relative group cursor-pointer">
         <div className={WishClasses} onClick={() => toggleWishList(product.id)}>
           <CiHeart />
         </div>
-        <div className="h-72 flex justify-center items-center bg-white">
-          <img
-            className="max-w-full w-40 group-hover:scale-110 transition"
-            alt={product.title}
-            src={product.thumbnail}
-          />
-        </div>
+        <Link to={"/products/" + product.id}>
+          <div className="h-72 flex justify-center items-center bg-white">
+            <img
+              className="max-w-full w-40 group-hover:scale-110 transition"
+              alt={product.title}
+              src={product.thumbnail}
+            />
+          </div>
+        </Link>
         <div className="flex gap-1 text-sm">
           <p className="flex-grow truncate">{product.title}</p>
           <p className="flex gap-0.5 items-center">
@@ -85,6 +87,5 @@ export default function Product({ product }) {
             )}
         </div>
       </div>
-    </Link>
   );
 }

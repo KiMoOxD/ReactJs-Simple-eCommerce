@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     {path: 'products'},
     {path: 'products/:id', loader: loader, element: <ProductPage />}
   ]}
-])
+], {scrollRestoration: 'auto'})
 
 function App() {
 

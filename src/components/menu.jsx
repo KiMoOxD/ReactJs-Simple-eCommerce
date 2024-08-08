@@ -3,6 +3,7 @@ import { IoMdExit } from "react-icons/io";
 import { useMenu } from "../context/MenuContext";
 import { useCart } from "../context/ShoppingCartContext";
 import { useWishList } from "../context/WishListContext";
+import { NavLink } from "react-router-dom";
 
 
 export default function Menu() {
@@ -20,7 +21,7 @@ export default function Menu() {
         <div className="text-white text-2xl absolute top-5 left-5" onClick={toggleMenu}>
           <IoMdExit />
         </div>
-        <div className="hover:bg-[#ffffff2f] py-3 border border-stone-50/0 hover:border-stone-50/25 hover:backdrop-blur-lg shadow text-stone-50 hover:text-stone-200 transition">Home</div>
+        <NavLink to={'/'}><div className="hover:bg-[#ffffff2f] py-3 border border-stone-50/0 hover:border-stone-50/25 hover:backdrop-blur-lg shadow text-stone-50 hover:text-stone-200 transition">Home</div></NavLink>
         <div className="hover:bg-[#ffffff2f] py-3 border border-stone-50/0 hover:border-stone-50/25 hover:backdrop-blur-lg shadow text-stone-50 hover:text-stone-200 transition">Catalogue</div>
         <div className="hover:bg-[#ffffff2f] py-3 border border-stone-50/0 hover:border-stone-50/25 hover:backdrop-blur-lg shadow text-stone-50 hover:text-stone-200 transition">Collections</div>
         <div className="hover:bg-[#ffffff2f] py-3 border border-stone-50/0 hover:border-stone-50/25 hover:backdrop-blur-lg shadow text-stone-50 hover:text-stone-200 transition">Popular</div>

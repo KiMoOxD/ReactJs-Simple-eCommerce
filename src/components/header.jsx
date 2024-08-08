@@ -8,15 +8,13 @@ import { useCart } from "../context/ShoppingCartContext";
 import WishList from "./wishList";
 import { useWishList } from "../context/WishListContext";
 import { useMenu } from "../context/MenuContext";
-import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { NavLink } from "react-router-dom";
 
 export default function Header() {
   let { cartItems, isCartOpen, toggleCart } = useCart();
   let { wishListItems, isWishListOpen, toggleWishListMenu } = useWishList();
-  let { isMenuOpen, toggleMenu } = useMenu();
-  let [isSearchOpen, setIsSearchOpen] = useState(false);
+  let { isMenuOpen, toggleMenu, isSearchOpen, setIsSearchOpen } = useMenu();
 
   function handleSearchClick() {
     setIsSearchOpen((prev) => !prev);
