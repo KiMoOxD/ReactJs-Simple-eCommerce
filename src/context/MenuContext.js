@@ -17,7 +17,7 @@ export default function MenuContextProvider({ children }) {
         searchResult,
         setSearchResult,
         isSearchOpen,
-        setIsSearchOpen
+        setIsSearchOpen,
         }}>
         {children}
     </MenuContext.Provider>

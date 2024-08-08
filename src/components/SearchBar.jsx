@@ -18,6 +18,8 @@ export default function SearchBar({ isSearchOpen, handleSearchClick }) {
     }
   }
 
+
+
   return (
     <div className="absolute top-[63px] md:top-3 left-1/2 translate-x-[-50%] w-3/4 md:w-1/2">
       <input
@@ -25,7 +27,7 @@ export default function SearchBar({ isSearchOpen, handleSearchClick }) {
         placeholder="Search millions of products"
         className="rounded-full border border-slate-400 w-full px-3 py-1.5 outline-none text-xs md:text-sm shadow-sm font-mono"
         onChange={handleChange}
-        onBlur={handleSearchClick}
+        //onBlur={handleSearchClick}
       />
       {isSearchOpen && (
         <IoIosCloseCircleOutline

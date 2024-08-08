@@ -6,6 +6,7 @@ import Products from "../components/products";
 import { BsCurrencyDollar } from "react-icons/bs";
 
 
+
 function DateFormater(date) {
   let mydate = new Date(date);
   let month = [
@@ -89,9 +90,9 @@ export default function ProductPage() {
               <BsCurrencyDollar className="text-sm self-start mt-1.5" />
               {newPrice}
             </p>
-            <p className="flex items-center font-normal  text-sm">
-              List Price:
-              <span className="flex items-center text-gray-500 line-through mb-1">
+            <p className="flex items-center font-normal text-sm mb-1">
+              <span>List Price:</span>
+              <span className="flex items-center text-gray-500 line-through">
                 <BsCurrencyDollar className="text-xs" />
                 {product.price}
               </span>
