@@ -5,7 +5,7 @@ import ScrollToTop from "./ScrollTop";
 
 export default function RootLayout() {
   return (
-    <div className="max-w-screen-2xl relative mx-auto">
+    <div className="max-w-screen-2xl lg:px-3 3xl:px-0 relative mx-auto">
       <Header />
       <ScrollToTop />
       <Outlet />

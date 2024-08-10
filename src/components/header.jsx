@@ -17,6 +17,9 @@ export default function Header() {
   let { isMenuOpen, toggleMenu, isSearchOpen, setIsSearchOpen } = useMenu();
 
   function handleSearchClick() {
+    if (isCartOpen) toggleCart();
+    if (isMenuOpen) toggleMenu();
+    if (isWishListOpen) toggleWishListMenu();
     setIsSearchOpen((prev) => !prev);
   }
 

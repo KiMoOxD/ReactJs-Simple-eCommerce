@@ -1,7 +1,7 @@
 import Product from './product'
 
 
-export default function Products({ List, Label }) {
+export default function Products({ List, Label, limit }) {
 
   return (
     <div className='px-4'>
@@ -16,5 +16,5 @@ export default function Products({ List, Label }) {
 }
 
 export async function loader() {
-  return fetch('https://dummyjson.com/products')
+  return fetch(`https://dummyjson.com/products`)
 }

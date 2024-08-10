@@ -10,44 +10,35 @@ import { Link } from "react-router-dom";
 let WishClasses;
 
 export default function Product({ product }) {
-  let { cartItems, addToCart, removeItem } = useCart();
-  let { wishListItems, toggleWishList } = useWishList();
-  let [btnContent, setBtnContent] = useState("Add to Cart");
-  let [classes, setClasses] = useState(
-    "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition"
-  );
-  let [isLoading, setIsLoading] = useState(false)
+  let { cartItems, addToCart, removeItem } = useCart(),
+      { wishListItems, toggleWishList } = useWishList(),
+      [isLoading, setIsLoading] = useState(false),
+      btnContent = "Add to Cart",
+      classes = "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition",
+      foundInCart = cartItems.some((item) => item.id === product.id),
+      foundInWishList = wishListItems.some((item) => item.id === product.id);
 
   useEffect(() => {
     setIsLoading(false)
   }, [product])
 
-  useEffect(() => {
-    let found = cartItems.some((item) => item.id === product.id);
-    if (found === false && btnContent === "Added to Cart") {
-      setBtnContent("Add to Cart");
-      setClasses(
-        "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition"
-      );
-    } else if (btnContent === "Added to Cart" && found === true) {
-      setClasses(
-        "border rounded-full text-white bg-stone-900 border-black text-sm w-fit px-4 py-1.5 transition pointer-events-none"
-      );
-    }
-  }, [cartItems]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (foundInCart === false && btnContent === "Added to Cart") {
+    btnContent = "Add to Cart"
+    classes = "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition"
+  } else if (btnContent === "Add to Cart" && foundInCart === true) {
+    btnContent = "Remove from Cart"
+    classes = "border rounded-full text-white bg-stone-900 border-black text-sm w-fit px-4 py-1.5 transition"
+  }
 
-  if (wishListItems.some((item) => item.id === product.id)) {
-    WishClasses =
-      "absolute right-5 top-5 p-2 rounded-full  text-xl cursor-pointer bg-red-500 text-white transition";
+  if (foundInWishList) {
+    WishClasses = "absolute right-5 top-5 p-2 rounded-full  text-xl cursor-pointer bg-red-500 text-white transition";
   } else {
-    WishClasses =
-      "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer lg:hover:bg-red-500 lg:hover:text-white transition";
+    WishClasses = "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer lg:hover:bg-red-500 lg:hover:text-white transition";
   }
 
-  function handeAddtoCart() {
-    setBtnContent("Added to Cart");
+  function handleCartClick() {
+    btnContent === 'Remove from Cart' ? removeItem(product.id) : addToCart(product.id)
   }
-
 
   return (
     
@@ -83,26 +74,12 @@ export default function Product({ product }) {
         <p className="font-light text-xs mb-1">
           {product.category.toUpperCase()}
         </p>
-        <div className="flex gap-2 items-center">
-          <button
-            className={classes}
-            onClick={() => {
-              addToCart(product.id);
-              handeAddtoCart();
-            }}
-          >
-            {btnContent}
-          </button>
-          {btnContent === "Added to Cart" &&
-            cartItems.some((item) => item.id === product.id) === true && (
-              <button
-                className="border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition"
-                onClick={() => removeItem(product.id)}
-              >
-                Dissmis
-              </button>
-            )}
-        </div>
+        <button
+          className={classes}
+          onClick={handleCartClick}
+        >
+          {btnContent}
+        </button>
       </div>
   );
 }
