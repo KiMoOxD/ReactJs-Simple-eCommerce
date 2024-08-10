@@ -4,12 +4,12 @@ import { IoCartOutline } from "react-icons/io5";
 import { BsCalendar2Heart } from "react-icons/bs";
 import Menu from "./menu";
 import Cart from "./cart";
-import { useCart } from "../context/ShoppingCartContext";
+import { useCart } from "../../context/ShoppingCartContext";
 import WishList from "./wishList";
-import { useWishList } from "../context/WishListContext";
-import { useMenu } from "../context/MenuContext";
+import { useWishList } from "../../context/WishListContext";
+import { useMenu } from "../../context/MenuContext";
 import SearchBar from "./SearchBar";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   let { cartItems, isCartOpen, toggleCart } = useCart();
@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <div className="flex sticky top-0 z-40 bg-white mx-auto justify-between items-center py-2 px-4 2xl:px-0">
-      <h1 className="font-['Edu_AU_VIC_WA_NT_Hand']">Shooopy!</h1>
+      <Link to={`/`}><h1 className="font-['Edu_AU_VIC_WA_NT_Hand']">Shooopy!</h1></Link>
       {!isSearchOpen && (
         <ul className="hidden lg:flex gap-2 *:w-24 *:h-9 *:flex *:justify-center *:transition *:cursor-pointer *:items-center">
           <NavLink className="hover:bg-slate-200" to={'/'}><li >Home</li></NavLink>

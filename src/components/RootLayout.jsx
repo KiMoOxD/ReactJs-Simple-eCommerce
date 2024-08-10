@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "./header";
+import Header from "./Header/header";
 import ScrollToTop from "./ScrollTop";
 
 export default function RootLayout() {

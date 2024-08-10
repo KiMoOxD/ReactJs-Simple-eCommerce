@@ -1,7 +1,7 @@
 import Product from './product'
 
 
-export default function Products({ List, Label, limit }) {
+export default function Products({ List, Label }) {
 
   return (
     <div className='px-4'>

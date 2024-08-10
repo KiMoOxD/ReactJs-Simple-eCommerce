@@ -1,5 +1,5 @@
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { useMenu } from "../context/MenuContext";
+import { useMenu } from "../../context/MenuContext";
 import { Link } from "react-router-dom";
 
 let initial = { isActive: false, items: [] };
@@ -50,7 +50,11 @@ export default function SearchBar({ isSearchOpen, handleSearchClick }) {
                 onClick={() => setSearchResult(initial)}
               >
                 <li className="flex items-center gap-2 rounded-lg bg-slate-300/15 backdrop-blur p-1 text-sm hover:bg-slate-100">
-                  <img src={item.thumbnail} className="size-9 md:size-10 xl:size-12" alt="" />
+                  <img
+                    src={item.thumbnail}
+                    className="size-9 md:size-10 xl:size-12"
+                    alt=""
+                  />
                   <div className="text-stone-900 max-h-[72px] max-w-[252px] md:max-w-full truncate">
                     <p>{item.title}</p>
                     <p>${item.price}</p>
