@@ -1,11 +1,23 @@
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { useMenu } from "../../context/MenuContext";
+import { useGeneralContext } from "../../../context/generalContext";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../context/ShoppingCartContext";
+import { useWishList } from "../../../context/WishListContext";
+import { handleSearchClick } from "../../../helper/utils";
 
 let initial = { isActive: false, items: [] };
 
-export default function SearchBar({ isSearchOpen, handleSearchClick }) {
-  let { searchResult, setSearchResult } = useMenu();
+export default function SearchBar() {
+  let {
+    searchResult,
+    setSearchResult,
+    isSearchOpen,
+    setIsSearchOpen,
+    isMenuOpen,
+    toggleMenu,
+  } = useGeneralContext();
+  let { isCartOpen, toggleCart } = useCart();
+  let { isWishListOpen, toggleWishListMenu } = useWishList();
 
   async function handleChange(e) {
     if (e.target.value === "") {
@@ -23,19 +35,23 @@ export default function SearchBar({ isSearchOpen, handleSearchClick }) {
   }
 
   return (
-    <div className="absolute top-[63px] md:top-3 left-1/2 translate-x-[-50%] w-3/4 md:w-1/2">
+    <div className="absolute top-[52px] md:top-2 left-1/2 translate-x-[-50%] w-3/4 md:w-1/2">
       <input
         type="text"
         placeholder="Search millions of products"
         className="rounded-full border border-slate-400 w-full px-3 py-1.5 outline-none text-xs md:text-sm shadow-sm font-mono"
         onChange={handleChange}
-        //onBlur={handleSearchClick}
       />
       {isSearchOpen && (
         <IoIosCloseCircleOutline
           className="absolute top-1/2 right-1.5 translate-y-[-50%] text-2xl cursor-pointer text-slate-500"
           onClick={() => {
-            handleSearchClick();
+            handleSearchClick(
+              { isCartOpen, toggleCart },
+              { isWishListOpen: isWishListOpen, toggleWishListMenu },
+              { isMenuOpen, toggleMenu },
+              setIsSearchOpen
+            );
             setSearchResult(initial);
           }}
         />

@@ -1,5 +1,12 @@
 
 
+export function handleSearchClick({isCartOpen, toggleCart}, {isWishListOpen, toggleWishListMenu}, {isMenuOpen, toggleMenu}, SearchFn) {
+    if (isCartOpen) toggleCart();
+    if (isMenuOpen) toggleMenu();
+    if (isWishListOpen) toggleWishListMenu();
+    SearchFn(prev => !prev)
+}
+
 export function DateFormater(date) {
     let mydate = new Date(date);
     let month = [

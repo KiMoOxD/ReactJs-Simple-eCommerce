@@ -1,7 +1,7 @@
-import { useWishList } from "../../context/WishListContext.js";
+import { useWishList } from "../../../context/WishListContext.js";
 import WishListItem from "./WishListItem.jsx";
 
-export default function WishList() {
+export default function WishListMenu() {
   let { wishListItems, ClearWishList } = useWishList();
   return (
     <div className="absolute min-w-80 h-80 border bg-stone-50 p-2 right-[-95px] sm:right-0 top-[160%] rounded">

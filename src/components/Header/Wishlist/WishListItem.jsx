@@ -1,4 +1,4 @@
-import { useWishList } from "../../context/WishListContext";
+import { useWishList } from "../../../context/WishListContext";
 import { CiTrash } from "react-icons/ci";
 
 export default function WishListItem({ id, title, price, image }) {

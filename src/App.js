@@ -1,36 +1,43 @@
-import CartContextProvider from './context/ShoppingCartContext'
+import CartContextProvider from "./context/ShoppingCartContext";
 import WishListContextProvider from "./context/WishListContext";
-import MenuContextProvider from './context/MenuContext'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import GeneralContextProvider from "./context/generalContext";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
-import RootLayout from './components/RootLayout';
-import { loader as ProductsLoader } from './components/products';
-import ProductPage, { loader } from './pages/ProductPage';
+import RootLayout from "./components/RootLayout";
+import { loader as ProductsLoader } from "./components/products";
+import ProductPage, { loader } from "./pages/ProductPage";
 
 const router = createBrowserRouter([
-  {path: '/', id: 'root', element: <RootLayout />, loader: ProductsLoader, 
+  {
+    path: "/",
+    id: "root",
+    element: <RootLayout />,
+    loader: ProductsLoader,
     children: [
-    {index: true, element: <Home />},
-    {path: 'products'},
-    {path: 'products/:id', loader: loader, element: <ProductPage />}
-  ]}
-], {scrollRestoration: 'auto'})
+      { index: true, element: <Home /> },
+      { path: "products" },
+      { path: "products/:id", loader: loader, element: <ProductPage /> },
+    ],
+  },
+]);
 
 function App() {
-
-  return <WishListContextProvider>
-        <CartContextProvider>
-          <MenuContextProvider>
-            <RouterProvider router={router} />
-          </MenuContextProvider>
-        </CartContextProvider>
+  return (
+    <WishListContextProvider>
+      <CartContextProvider>
+        <GeneralContextProvider>
+          <RouterProvider router={router} />
+        </GeneralContextProvider>
+      </CartContextProvider>
     </WishListContextProvider>
+  );
 }
 
 export default App;
 
 // eslint-disable-next-line
-{/* <WishListContextProvider>
+{
+  /* <WishListContextProvider>
       <CartContextProvider>
         <MenuContextProvider>
           <div className="max-w-screen-2xl relative mx-auto" >
@@ -41,4 +48,5 @@ export default App;
           </div>
         </MenuContextProvider>
       </CartContextProvider>
-    </WishListContextProvider> */}
+    </WishListContextProvider> */
+}

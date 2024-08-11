@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
-let MenuContext = createContext()
+let GeneralContext = createContext()
 
-export default function MenuContextProvider({ children }) {
+export default function GeneralContextProvider({ children }) {
+
     let [isMenuOpen, setIsMenuOpen] = useState(false)
     let [searchResult, setSearchResult] = useState({isActive: false, items: []})
     let [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function MenuContextProvider({ children }) {
         setIsMenuOpen(prev => !prev)
     }
 
-    return <MenuContext.Provider value={{
+    return <GeneralContext.Provider value={{
         isMenuOpen,
         toggleMenu,
         searchResult,
@@ -20,9 +21,9 @@ export default function MenuContextProvider({ children }) {
         setIsSearchOpen,
         }}>
         {children}
-    </MenuContext.Provider>
+    </GeneralContext.Provider>
 }
 
-export function useMenu() {
-    return useContext(MenuContext)
+export function useGeneralContext() {
+    return useContext(GeneralContext)
 }

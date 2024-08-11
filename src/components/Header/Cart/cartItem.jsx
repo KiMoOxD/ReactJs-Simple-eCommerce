@@ -1,7 +1,7 @@
 import React from "react";
 import { CiSquarePlus } from "react-icons/ci";
 import { CiSquareMinus } from "react-icons/ci";
-import { useCart } from "../../context/ShoppingCartContext";
+import { useCart } from "../../../context/ShoppingCartContext";
 import { CiTrash } from "react-icons/ci";
 
 export default function CartItem({ item }) {

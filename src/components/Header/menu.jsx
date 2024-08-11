@@ -1,25 +1,27 @@
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdExit } from "react-icons/io";
-import { useMenu } from "../../context/MenuContext";
 import { useCart } from "../../context/ShoppingCartContext";
 import { useWishList } from "../../context/WishListContext";
 import { NavLink } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
+import { useGeneralContext } from "../../context/generalContext";
 
 
 export default function Menu() {
-  let { isMenuOpen, toggleMenu } = useMenu();
+  let { isMenuOpen, toggleMenu } = useGeneralContext();
   let { isCartOpen, toggleCart } = useCart();
   let { isWishListOpen, toggleWishListMenu } = useWishList();
   return (
     <div className="lg:hidden text-xl cursor-pointer relative">
-      {!isMenuOpen && <CiMenuBurger
-        onClick={() => {
-          if (isCartOpen) toggleCart();
-          if (isWishListOpen) toggleWishListMenu();
-          toggleMenu();
-        }}
-      />}
+      {!isMenuOpen && (
+        <CiMenuBurger
+          onClick={() => {
+            if (isCartOpen) toggleCart();
+            if (isWishListOpen) toggleWishListMenu();
+            toggleMenu();
+          }}
+        />
+      )}
       {isMenuOpen && <IoMdClose onClick={toggleMenu} />}
       {isMenuOpen && (
         <div className="h-[98vh] w-[100vw] *:w-full *:text-center md:w-96 absolute top-[198%] right-[-75%] pt-14 flex flex-col gap-2 bg-[#0c0b1549] border border-stone-50/10 backdrop-blur-md shadow rounded-sm">

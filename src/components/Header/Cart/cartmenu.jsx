@@ -1,9 +1,9 @@
 import React from "react";
 import CartItem from "./cartItem";
-import { useCart } from "../../context/ShoppingCartContext";
+import { useCart } from "../../../context/ShoppingCartContext";
 import { BsCurrencyDollar } from "react-icons/bs";
 
-export default function Cart() {
+export default function CartMenu() {
   let { cartItems } = useCart();
   let totalPrice =
     cartItems.length > 0
