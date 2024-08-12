@@ -4,17 +4,21 @@ import { useCart } from "../context/ShoppingCartContext";
 import { useEffect, useState } from "react";
 import { useWishList } from "../context/WishListContext";
 import { Link } from "react-router-dom";
+import { BsCartPlus } from "react-icons/bs";
+import { BsCartDash } from "react-icons/bs";
 
 
 
-let WishClasses;
 
-export default function Product({ product }) {
+let WishClasses, addToCartClasses, removefromCartClasses;
+
+export default function Product({ product, ...props }) {
   let { cartItems, addToCart, removeItem } = useCart(),
       { wishListItems, toggleWishList } = useWishList(),
       [isLoading, setIsLoading] = useState(false),
-      btnContent = "Add to Cart",
-      classes = "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition",
+      // btnContent = "Add to Cart",
+      // eslint-disable-next-line
+      // classes = "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition",
       foundInCart = cartItems.some((item) => item.id === product.id),
       foundInWishList = wishListItems.some((item) => item.id === product.id);
 
@@ -22,13 +26,14 @@ export default function Product({ product }) {
     setIsLoading(false)
   }, [product])
 
-  if (foundInCart === false && btnContent === "Added to Cart") {
-    btnContent = "Add to Cart"
-    classes = "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition"
-  } else if (btnContent === "Add to Cart" && foundInCart === true) {
-    btnContent = "Remove from Cart"
-    classes = "border rounded-full text-white bg-stone-900 border-black text-sm w-fit px-4 py-1.5 transition"
-  }
+  // eslint-disable-next-line
+  // if (foundInCart === false && btnContent === "Added to Cart") {
+  //   btnContent = "Add to Cart"
+  //   classes = "border rounded-full text-black border-black text-sm w-fit px-4 py-1.5 hover:animate-pulse hover:bg-stone-100 transition"
+  // } else if (btnContent === "Add to Cart" && foundInCart === true) {
+  //   btnContent = "Remove from Cart"
+  //   classes = "border rounded-full text-white bg-stone-900 border-black text-sm w-fit px-4 py-1.5 transition"
+  // }
 
   if (foundInWishList) {
     WishClasses = "absolute right-5 top-5 p-2 rounded-full  text-xl cursor-pointer bg-red-500 text-white transition";
@@ -36,15 +41,32 @@ export default function Product({ product }) {
     WishClasses = "absolute right-5 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer lg:hover:bg-red-500 lg:hover:text-white transition";
   }
 
-  function handleCartClick() {
-    btnContent === 'Remove from Cart' ? removeItem(product.id) : addToCart(product.id)
+  // eslint-disable-next-line
+  // function handleCartClick() {
+  //   btnContent === 'Remove from Cart' ? removeItem(product.id) : addToCart(product.id)
+  // }
+
+  if (foundInCart) {
+    addToCartClasses = "hidden";
+    removefromCartClasses = 'absolute right-16 top-5 p-2 rounded-full bg-stone-900 text-xl text-stone-50 cursor-pointer'
+  } else {
+    addToCartClasses = "absolute right-16 top-5 p-2 rounded-full bg-stone-100 text-xl cursor-pointer lg:hover:bg-stone-900 lg:hover:text-white transition";
+    removefromCartClasses = 'hidden'
   }
 
   return (
-    
-      <div className="p-2 flex flex-col gap-2 bg-stone-50 relative group cursor-pointer">
+      <div className="p-2 flex flex-col gap-2 bg-stone-50 relative group cursor-pointer" {...props}>
         <div className={WishClasses} onClick={() => toggleWishList(product.id)}>
           <CiHeart />
+        </div>
+        <div className={addToCartClasses} onClick={() => addToCart(product.id)}>
+          <BsCartPlus />
+        </div>
+        <div className={removefromCartClasses} onClick={() => removeItem(product.id)}>
+          <BsCartDash />
+        </div>
+        <div className='absolute left-5 top-5 w-14 h-6 flex items-center justify-center  text-xs cursor-pointer bg-red-500 text-white transition' onClick={() => removeItem(product.id)}>
+          -{product.discountPercentage}%
         </div>
         <Link to={"/products/" + product.id} onClick={() => setIsLoading(true)}>
           <div className="h-72 flex justify-center items-center bg-white">
@@ -66,20 +88,20 @@ export default function Product({ product }) {
         </Link>
         <div className="flex gap-1 text-sm">
           <p className="flex-grow truncate">{product.title}</p>
-          <p className="flex gap-0.5 items-center">
+          <p className="flex items-center">
             <BsCurrencyDollar />
             {product.price}
           </p>
         </div>
         <p className="font-light text-xs mb-1">
-          {product.category.toUpperCase()}
+          {product.category?.toUpperCase()}
         </p>
-        <button
+        {/* <button
           className={classes}
           onClick={handleCartClick}
         >
           {btnContent}
-        </button>
+        </button> */}
       </div>
   );
 }

@@ -6,7 +6,6 @@ import ProductInfo from "../components/ProductPage/ProductInfo";
 import ProductCartButton from "../components/ProductPage/ProductCartButton";
 import ProductReviews from "../components/ProductPage/ProductReviews";
 
-
 export default function ProductPage() {
   let [product, category] = useLoaderData();
   let newPrice = (
@@ -17,7 +16,11 @@ export default function ProductPage() {
   return (
     <>
       <div className="flex flex-col lg:flex-row items-center gap-4 px-4 2xl:px-0 mt-5">
-        <ProductImages images={product.images} thumbnail={product.thumbnail} title={product.title} />
+        <ProductImages
+          images={product.images}
+          thumbnail={product.thumbnail}
+          title={product.title}
+        />
         <div className="lg:w-[500px] w-full order-2 min-h-[700px] flex flex-col">
           <p className="text-xs bg-stone-800 px-1 py-0.5 text-white w-fit">
             Online App-Only Price
@@ -44,7 +47,15 @@ export default function ProductPage() {
           <ProductReviews product={product} />
         </div>
       </div>
-      <Products List={category} Label={`Discover Similliar`} />
+      <div className="flex justify-center md:justify-start">
+        <p className="relative text-red-500 font-semibold text-md md:pl-3 lg:pl-0 before:w-4 before:rounded before:h-10 before:bg-red-500 before:inline-block gap-2 flex items-center">
+          Discover
+        </p>
+      </div>
+      <h1 className="text-3xl pl-3 lg:pl-0 lg:text-4xl text-center md:text-start mt-1  tracking-wider font-semibold">
+        Simillar Products
+      </h1>
+      <Products List={category} />
     </>
   );
 }
@@ -57,7 +68,7 @@ export async function loader({ params }) {
     "https://dummyjson.com/products/category/" + product.category
   );
   categoryList = await categoryList.json();
-  let similliar = categoryList.products.filter(item => item.id !== +id)
+  let similliar = categoryList.products.filter((item) => item.id !== +id);
 
   return Promise.all([product, similliar]);
 }
