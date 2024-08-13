@@ -1,8 +1,9 @@
 import React from "react";
+import imageSrc from '../landing.webp'
 
 export default function Hero() {
   return (
-    <div className="h-[70vh] p-4 flex items-center lg:items-end bg-slate-500 lg:rounded-3xl bg-[url('https://images.unsplash.com/photo-1527283646354-d874f249ea2b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat">
+    <div className="h-[70vh] p-4 flex items-center lg:items-end bg-slate-500 lg:rounded-3xl bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${imageSrc})`}}>
       <div className="flex flex-col lg:flex-row justify-evenly gap-3 items-center w-full">
         <div className="lg:pl-9 lg:pb-9">
           <h2 className="text-[40px] md:text-[60px] lg:text-[100px] text-white mb-[-20px] lg:mb-[-50px]">Redefining Your</h2>

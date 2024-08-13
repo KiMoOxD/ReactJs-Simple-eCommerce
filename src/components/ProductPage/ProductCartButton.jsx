@@ -1,6 +1,6 @@
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../../context/ShoppingCartContext";
 
 export default function ProductCartButton({ product }) {
@@ -8,6 +8,10 @@ export default function ProductCartButton({ product }) {
     [qty, setQty] = useState(1),
     btnContent = 'Add to Cart',
     foundInCart = cartItems.some((item) => item.id === product.id)
+
+    useEffect(() => {
+      setQty(1)
+    }, [product])
 
     if (foundInCart === false && btnContent === "Added to Cart") {
         btnContent = "Add to Cart"

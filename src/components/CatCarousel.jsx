@@ -10,13 +10,15 @@ import { IoCameraOutline } from "react-icons/io5";
 import { CiHeadphones } from "react-icons/ci";
 import { SiYoutubegaming } from "react-icons/si";
 import { IoWatchOutline } from "react-icons/io5";
+import { GiClothes } from "react-icons/gi";
+
 
 
 
 export function NextArrow({ onClick }) {
   return (
     <div
-      className={`slick-arrow cursor-pointer hover:bg-stone-200 absolute top-[107%] right-[33%]  md:top-[-33px] md:right-[-40%] xl:right-[-49%] p-1.5 flex items-center justify-center rounded-full bg-stone-100 border`}
+      className={`slick-arrow text-xl cursor-pointer hover:bg-stone-200 absolute top-[107%] right-[44%] translate-x-[60%]  md:top-[-33px] md:right-[-5%] xl:right-[-10%] p-1.5 flex items-center justify-center rounded-full bg-stone-100 border`}
       onClick={onClick}
     >
      <GrFormNext />
@@ -27,7 +29,7 @@ export function NextArrow({ onClick }) {
 export function PrevArrow({ onClick }) {
   return (
     <div
-      className={`slick-arrow cursor-pointer hover:bg-stone-200 absolute top-[107%] right-[52%] md:top-[-33px] md:right-[-31.5%] xl:right-[-44%] p-1.5 flex items-center justify-center rounded-full bg-stone-100 border`}
+      className={`slick-arrow text-xl cursor-pointer hover:bg-stone-200 absolute top-[107%] right-[45%] translate-x-[-60%]  md:top-[-33px] md:right-[-5%] xl:right-[-10%] p-1.5 flex items-center justify-center rounded-full bg-stone-100 border`}
       onClick={onClick}
     >
      <GrFormPrevious />
@@ -43,7 +45,7 @@ export default function CatCarousel({List}) {
     infinite: true,
     lazyLoad: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 1,
     // initialSlide: 0,
     nextArrow: <NextArrow />,
@@ -52,7 +54,7 @@ export default function CatCarousel({List}) {
         {
           breakpoint: 1280,
           settings: {
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 1,
             infinite: true,
           }
@@ -60,7 +62,7 @@ export default function CatCarousel({List}) {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 3,
             slidesToScroll: 1,
             infinite: true,
           }
@@ -84,7 +86,7 @@ export default function CatCarousel({List}) {
   };
 
   return (
-    <div className="w-1/2 mx-auto pb-5 md:pb-0">
+    <div className="w-3/4 mx-auto pb-5 md:pb-0">
       <Slider {...settings} className="pt-5">
       <div>
         <div className="relative left-1/2 translate-x-[-50%] flex flex-col items-center justify-center gap-2 w-36 h-32 border ">
@@ -120,6 +122,12 @@ export default function CatCarousel({List}) {
         <div className="relative left-1/2 translate-x-[-50%] flex flex-col items-center justify-center gap-2 w-36 h-32 border">
           <span className="text-3xl"><IoWatchOutline /></span>
           <span className="text-sm">Smart Watches</span>
+        </div>
+      </div>
+      <div>
+        <div className="relative left-1/2 translate-x-[-50%] flex flex-col items-center justify-center gap-2 w-36 h-32 border">
+          <span className="text-3xl"><GiClothes /></span>
+          <span className="text-sm">Fashion</span>
         </div>
       </div>
       </Slider>

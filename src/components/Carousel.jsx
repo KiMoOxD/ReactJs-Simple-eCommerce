@@ -50,7 +50,7 @@ export default function SimpleSlider({List}) {
   return (
     <Slider {...settings} className="relative gap-2 max-w-full">
     {List?.map(product => {
-        return <Product key={product.id} product={product}/>
+        return <div key={product.id} className="px-1.5"><Product key={product.id} product={product}/></div>
         })}
     </Slider>
   );
