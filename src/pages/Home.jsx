@@ -14,7 +14,6 @@ import speakersImg from '../speakers.webp'
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiCustomerService2Line } from "react-icons/ri";
 import { BsShieldCheck } from "react-icons/bs";
-import Footer from '../components/footer'
 
 
 
@@ -74,7 +73,7 @@ export default function Home() {
       <Products List={products} />
       <div className="my-7 h-1"></div>
       <Banner />
-      <hr className="my-8" />
+      <div className="my-7 h-1" />
       <div className="flex justify-center md:justify-start">
         <p className="relative text-red-500 font-semibold text-md md:pl-3 lg:pl-0 before:w-4 before:rounded before:h-10 before:bg-red-500 before:inline-block gap-2 flex items-center">
           Featured
@@ -159,7 +158,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <hr className="my-8" />
+      <div className="my-7 h-1" />
       <div className="grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1 items-center">
           <TbTruckDelivery className="size-16 rounded-full p-2 bg-black border-8 border-stone-300 text-white"/>
@@ -178,7 +177,6 @@ export default function Home() {
         </div>
       </div>
       <div className="my-7 h-1"></div>
-      <Footer />
     </>
   );
 }

@@ -6,7 +6,6 @@ import { CiTrash } from "react-icons/ci";
 
 export default function CartItem({ item }) {
   let { increaseQ, decreaseQ, removeItem } = useCart();
-  console.log(item);
   return (
     <div className="flex items-center gap-2 py-1">
       <div

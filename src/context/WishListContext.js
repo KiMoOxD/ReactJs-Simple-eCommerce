@@ -3,12 +3,12 @@ import { useState } from "react";
 
 const WishListContext = createContext();
 
-async function fetchData() {
-    let res = await fetch('https://dummyjson.com/products')
-    let products = await res.json()
-    // console.log(products)
-    return products.products
-}
+// async function fetchData() {
+//     let res = await fetch('https://dummyjson.com/products')
+//     let products = await res.json()
+//     // console.log(products)
+//     return products.products
+// }
 
 export default function WishListContextProvider({ children }) {
     const [wishListItems, setWishListItems] = useState([]);
@@ -19,15 +19,27 @@ export default function WishListContextProvider({ children }) {
         setisWishListOpen(prev => !prev)
     }
 
-    async function toggleWishList(id) {
-        let products = await fetchData()
+    // async function toggleWishList(id) {
+    //     let products = await fetchData()
+    //     setWishListItems(prev => {
+    //         let foundInWishList = prev.some(item => item.id === id)
+    //         if (foundInWishList) {
+    //             return [...prev.filter(item => item.id !== id)]
+    //         } else {
+    //             let FavProduct = products.find(item => item.id === id)
+    //             return [...prev, FavProduct]
+    //         }
+    //     })
+    // }
+
+
+    async function toggleWishList({id, title, price, thumbnail}) {
         setWishListItems(prev => {
             let foundInWishList = prev.some(item => item.id === id)
             if (foundInWishList) {
                 return [...prev.filter(item => item.id !== id)]
             } else {
-                let FavProduct = products.find(item => item.id === id)
-                return [...prev, FavProduct]
+                return [...prev, {id, title, price, thumbnail}]
             }
         })
     }

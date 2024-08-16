@@ -20,7 +20,9 @@ export default function ProductCartButton({ product }) {
       }
 
     function handleCartClick() {
-        btnContent === 'Remove from Cart' ? removeItem(product.id) : addToCart(product.id, qty)
+        btnContent === 'Remove from Cart' ? removeItem(product.id) 
+        : 
+        addToCart({id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail}, qty)
     }
 
     function handleMinus() {

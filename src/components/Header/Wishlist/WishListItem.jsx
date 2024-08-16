@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { useWishList } from "../../../context/WishListContext";
 import { CiTrash } from "react-icons/ci";
 
 export default function WishListItem({ id, title, price, image }) {
   let { removeFromWishList } = useWishList();
   return (
+    <Link to={`/products/${id}`}>
     <div className="flex items-center gap-2 py-1 hover:bg-stone-100 transition">
       {/* <img className='size-9 object-contain' src={image} alt="" /> */}
       <div
@@ -21,5 +23,6 @@ export default function WishListItem({ id, title, price, image }) {
         />
       </div>
     </div>
+    </Link>
   );
 }

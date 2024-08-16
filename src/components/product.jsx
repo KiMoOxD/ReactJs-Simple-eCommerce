@@ -56,10 +56,10 @@ export default function Product({ product, ...props }) {
 
   return (
       <div className="p-2 flex flex-col gap-2 bg-stone-50 relative group cursor-pointer" {...props}>
-        <div className={WishClasses} onClick={() => toggleWishList(product.id)}>
+        <div className={WishClasses} onClick={() => toggleWishList({id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail})}>
           <CiHeart />
         </div>
-        <div className={addToCartClasses} onClick={() => addToCart(product.id)}>
+        <div className={addToCartClasses} onClick={() => addToCart({id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail})}>
           <BsCartPlus />
         </div>
         <div className={removefromCartClasses} onClick={() => removeItem(product.id)}>

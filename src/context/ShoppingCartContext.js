@@ -11,20 +11,32 @@ let CartContextProvider = ({ children }) => {
         setIsCartOpen(prev => !prev)
     }
 
-    async function addToCart(id, qty=1) {
-        let res = await fetch('https://dummyjson.com/products/'+ id)
-        let product = await res.json()
+    // async function addToCart(id, qty=1) {
+    //     let res = await fetch('https://dummyjson.com/products/'+ id)
+    //     let product = await res.json()
         
+    //     if (qty <= 0 ) return;
+    //     setCartItems(prev => {
+    //         if (prev.some(item => item.id === id) === false) {
+    //             return [...prev, {id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail, quantity: qty}]
+    //         } else {
+    //             return [...prev]
+    //         }
+    //     })
+
+    // }
+
+    async function addToCart({id, title, price, thumbnail}, qty=1) {
         if (qty <= 0 ) return;
         setCartItems(prev => {
             if (prev.some(item => item.id === id) === false) {
-                return [...prev, {id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail, quantity: qty}]
+                return [...prev, {id, title, price, thumbnail, quantity: qty}]
             } else {
                 return [...prev]
             }
         })
 
-}
+    }
 
     function increaseQ(id) {
         setCartItems(prev => {
