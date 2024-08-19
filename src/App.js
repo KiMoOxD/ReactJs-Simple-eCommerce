@@ -2,9 +2,9 @@ import CartContextProvider from "./context/ShoppingCartContext";
 import WishListContextProvider from "./context/WishListContext";
 import GeneralContextProvider from "./context/generalContext";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home, { CatLoader } from "./pages/Home";
+import Home, { FlashSaleLoader } from "./pages/Home";
 import RootLayout from "./components/RootLayout";
-import { loader as ProductsLoader } from "./components/products";
+import { loader as ProductsLoader } from "./components/Containers/products";
 import ProductPage, { loader } from "./pages/ProductPage";
 
 const router = createBrowserRouter([
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     loader: ProductsLoader,
     children: [
-      { index: true, element: <Home />, loader: CatLoader },
+      { index: true, element: <Home />, loader: FlashSaleLoader },
       { path: "products" },
       { path: "products/:id", loader: loader, element: <ProductPage /> },
     ],

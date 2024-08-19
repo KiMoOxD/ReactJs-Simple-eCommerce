@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
-import Products from "../components/products";
+import Products from "../components/Containers/products";
 import { BsCurrencyDollar } from "react-icons/bs";
 import ProductImages from "../components/ProductPage/ProductImages";
 import ProductInfo from "../components/ProductPage/ProductInfo";
 import ProductCartButton from "../components/ProductPage/ProductCartButton";
 import ProductReviews from "../components/ProductPage/ProductReviews";
+import HeadLine from "../components/Containers/HeadLine";
+import Separator from "../components/Other/Separator";
 
 export default function ProductPage() {
   let [product, category] = useLoaderData();
@@ -47,15 +49,9 @@ export default function ProductPage() {
           <ProductReviews product={product} />
         </div>
       </div>
-      <div className="flex justify-center md:justify-start">
-        <p className="relative text-red-500 font-semibold text-md md:pl-3 lg:pl-0 before:w-4 before:rounded before:h-10 before:bg-red-500 before:inline-block gap-2 flex items-center">
-          Discover
-        </p>
-      </div>
-      <h1 className="text-3xl pl-3 lg:pl-0 lg:text-4xl text-center md:text-start mt-1  tracking-wider font-semibold">
-        Simillar Products
-      </h1>
+      <HeadLine head={`Discover`} label={`Simillar Products`} />
       <Products List={category} />
+      <Separator level={5} />
     </>
   );
 }
@@ -65,7 +61,7 @@ export async function loader({ params }) {
   let data = await fetch(`https://dummyjson.com/products/${id}`);
   let product = await data.json();
   let categoryList = await fetch(
-    "https://dummyjson.com/products/category/" + product.category
+    "https://dummyjson.com/products/category/" + product.category + "?limit=11"
   );
   categoryList = await categoryList.json();
   let similliar = categoryList.products.filter((item) => item.id !== +id);

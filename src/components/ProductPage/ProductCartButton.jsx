@@ -4,33 +4,41 @@ import { useEffect, useState } from "react";
 import { useCart } from "../../context/ShoppingCartContext";
 
 export default function ProductCartButton({ product }) {
-    let { cartItems, addToCart, removeItem } = useCart(),
+  let { cartItems, addToCart, removeItem } = useCart(),
     [qty, setQty] = useState(1),
-    btnContent = 'Add to Cart',
-    foundInCart = cartItems.some((item) => item.id === product.id)
+    btnContent = "Add to Cart",
+    foundInCart = cartItems.some((item) => item.id === product.id);
 
-    useEffect(() => {
-      setQty(1)
-    }, [product])
+  useEffect(() => {
+    setQty(1);
+  }, [product]);
 
-    if (foundInCart === false && btnContent === "Added to Cart") {
-        btnContent = "Add to Cart"
-      } else if (btnContent === "Add to Cart" && foundInCart === true) {
-        btnContent = "Remove from Cart"
-      }
+  if (foundInCart === false && btnContent === "Added to Cart") {
+    btnContent = "Add to Cart";
+  } else if (btnContent === "Add to Cart" && foundInCart === true) {
+    btnContent = "Remove from Cart";
+  }
 
-    function handleCartClick() {
-        btnContent === 'Remove from Cart' ? removeItem(product.id) 
-        : 
-        addToCart({id: product.id, title: product.title, price: product.price, thumbnail: product.thumbnail}, qty)
-    }
+  function handleCartClick() {
+    btnContent === "Remove from Cart"
+      ? removeItem(product.id)
+      : addToCart(
+          {
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            thumbnail: product.thumbnail,
+          },
+          qty
+        );
+  }
 
-    function handleMinus() {
-        setQty(prev => {
-        if (prev === 1) return 1;    
-        return prev - 1
-        })
-    }
+  function handleMinus() {
+    setQty((prev) => {
+      if (prev === 1) return 1;
+      return prev - 1;
+    });
+  }
 
   return (
     <div className="flex items-center gap-2">

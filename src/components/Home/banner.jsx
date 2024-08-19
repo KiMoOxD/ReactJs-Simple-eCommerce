@@ -1,4 +1,4 @@
-import imageSrc from '../AppleWatch8.webp'
+import imageSrc from '../../images/AppleWatch8.webp'
 
 export default function Banner() {
   return (

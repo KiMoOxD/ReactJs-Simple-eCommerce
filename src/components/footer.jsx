@@ -1,7 +1,7 @@
 import { VscSend } from "react-icons/vsc";
-import qrcode from '../qr.webp'
-import googleplay from '../googleplay.webp'
-import appstore from '../appstore.webp'
+import qrcode from '../images/qr.webp'
+import googleplay from '../images/googleplay.webp'
+import appstore from '../images/appstore.webp'
 import { FaFacebookSquare } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa";

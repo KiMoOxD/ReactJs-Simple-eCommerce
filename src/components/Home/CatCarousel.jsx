@@ -39,7 +39,7 @@ export function PrevArrow({ onClick }) {
 
 
 
-export default function CatCarousel({List}) {
+export default function CatCarousel() {
   var settings = {
     dots: false,
     infinite: true,

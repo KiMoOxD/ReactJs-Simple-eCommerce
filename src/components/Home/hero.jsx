@@ -1,5 +1,5 @@
 import React from "react";
-import imageSrc from '../landing.webp'
+import imageSrc from '../../images/landing.webp'
 
 export default function Hero() {
   return (

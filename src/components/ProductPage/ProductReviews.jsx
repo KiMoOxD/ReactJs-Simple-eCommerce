@@ -1,14 +1,21 @@
 import { DateFormater } from "../../helper/utils";
-import image from "../../pngwing.png";
-import { useState } from "react";
+import image from "../../images/pngwing.png";
+import { useEffect, useState } from "react";
 
 export default function ProductReviews({ product }) {
   let [content, setContent] = useState(product.description);
 
+  useEffect(() => {
+    setContent(product.description);
+  }, [product]);
+
   if (typeof content !== "string") {
     content = content.map((review) => {
       return (
-        <div key={review.reviewerName+review.comment} className="flex my-4 gap-2">
+        <div
+          key={review.reviewerName + review.comment}
+          className="flex my-4 gap-2"
+        >
           <img className="size-10" src={image} alt="" />
           <div className="flex w-full bg-stone-100 p-2 flex-col gap-2">
             <div className="flex text-sm">
