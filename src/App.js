@@ -6,6 +6,7 @@ import Home, { FlashSaleLoader } from "./pages/Home";
 import RootLayout from "./components/RootLayout";
 import { loader as ProductsLoader } from "./components/Containers/products";
 import ProductPage, { loader } from "./pages/ProductPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home />, loader: FlashSaleLoader },
       { path: "products" },
       { path: "products/:id", loader: loader, element: <ProductPage /> },
+      { path: "checkout", element: <CheckoutPage />},
     ],
   },
 ]);

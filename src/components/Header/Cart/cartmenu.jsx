@@ -2,6 +2,7 @@ import React from "react";
 import CartItem from "./cartItem";
 import { useCart } from "../../../context/ShoppingCartContext";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function CartMenu() {
   let { cartItems } = useCart();
@@ -35,9 +36,11 @@ export default function CartMenu() {
         )}
       </div>
       <div className="flex items-center mt-2 text-sm justify-between">
-        <button className="py-1.5 px-4 border border-stone-500 rounded-full text-sm hover:bg-stone-200 transition">
-          Checkout
-        </button>
+        <Link to={"/checkout"}>
+          <button className="py-1 px-4 border border-stone-500 rounded-full text-sm hover:bg-stone-200 transition">
+            Checkout
+          </button>
+        </Link>
         <div className="pr-5 flex items-center font-semibold">
           Total: <BsCurrencyDollar />
           {totalPrice.toFixed(2)}
