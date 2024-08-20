@@ -51,7 +51,6 @@ export default function PaymentForm() {
 
               <button type="submit" className="flex w-full items-center justify-center rounded bg-primary-700 px-5 py-2.5 text-sm font-medium text-white border bg-stone-950 hover:bg-transparent hover:text-black hover:border-black focus:outline-none focus:ring-4  focus:ring-primary-300">Add Payment</button>
           </form>
-          
         </div>
       </div>
     </section>
