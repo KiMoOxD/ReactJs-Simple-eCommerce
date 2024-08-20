@@ -1,11 +1,11 @@
 
 export default function PaymentForm() {
   return (
-    <section className="py-8 antialiased  md:py-16">
+    <section className="antialiased  ">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="mx-auto max-w-5xl">
-          <h2 className="text-xl font-semibold text-gray-900 sm:text-2xl">Payment</h2>
-          <form action="#" className="w-full rounded-lg border border-gray-200 p-4 shadow-sm sm:p-6  lg:p-8">
+          {/* <h2 className="text-xl font-semibold text-gray-900 sm:text-2xl mb-2">Payment</h2> */}
+          <form action="#" className="w-full rounded-lg border border-gray-200 p-4 shadow-sm sm:p-6 lg:p-8">
               <div className="mb-6 grid grid-cols-2 gap-4">
                 <div className="col-span-2 sm:col-span-1">
                   <label htmlFor="full_name" className="mb-2 block text-sm font-medium text-gray-900"> Full name (as displayed on card)* </label>
@@ -49,7 +49,7 @@ export default function PaymentForm() {
                 </div>
               </div>
 
-              <button type="submit" className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Pay now</button>
+              <button type="submit" className="flex w-full items-center justify-center rounded bg-primary-700 px-5 py-2.5 text-sm font-medium text-white border bg-stone-950 hover:bg-transparent hover:text-black hover:border-black focus:outline-none focus:ring-4  focus:ring-primary-300">Add Payment</button>
           </form>
           
         </div>
