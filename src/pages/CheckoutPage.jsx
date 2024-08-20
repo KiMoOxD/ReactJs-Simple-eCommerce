@@ -19,7 +19,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-[65vh] w-full flex flex-col lg:flex-row gap-52 pt-5">
+    <div className="min-h-[65vh] w-full flex flex-col lg:flex-row lg:gap-12 xl:gap-52 pt-5">
       <div className="p-5 flex flex-col gap-2 lg:p-12 max-w-full flex-grow">
         <CheckOutProgress progress={progress} />
         <Separator level={7} />
