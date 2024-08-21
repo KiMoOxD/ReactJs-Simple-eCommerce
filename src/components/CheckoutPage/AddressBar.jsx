@@ -1,4 +1,4 @@
-import { CiCirclePlus } from "react-icons/ci";
+// import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleCheck } from "react-icons/ci";
 
 export default function AddressBar() {
@@ -19,12 +19,12 @@ export default function AddressBar() {
           <p className="text-sm mb-0.5">Florida, Pompano Beach - 33069</p>
           <p className="text-sm mb-0.5">Mobile No : (954) 564-7021</p>
         </div>
-        <div className="bg-stone-100/50 rounded min-w-36 border p-2 flex justify-center items-center hover:border-stone-300 transition">
+        {/* <div className="bg-stone-100/50 rounded min-w-36 border p-2 flex justify-center items-center hover:border-stone-300 transition">
           <div className="flex flex-col gap-1 items-center">
             <CiCirclePlus className="text-3xl text-stone-500" />
             <p className="text-sm text-stone-400">Add Address</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

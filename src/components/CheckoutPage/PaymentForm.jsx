@@ -9,12 +9,12 @@ export default function PaymentForm() {
               <div className="mb-6 grid grid-cols-2 gap-4">
                 <div className="col-span-2 sm:col-span-1">
                   <label htmlFor="full_name" className="mb-2 block text-sm font-medium text-gray-900"> Full name (as displayed on card)* </label>
-                  <input type="text" id="full_name" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 outline-none" placeholder="Bonnie Green" required />
+                  <input type="text" id="full_name" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 outline-none" placeholder="Bonnie Green" required />
                 </div>
 
                 <div className="col-span-2 sm:col-span-1">
                   <label htmlFor="card-number-input" className="mb-2 block text-sm font-medium text-gray-900"> Card number* </label>
-                  <input type="text" id="card-number-input" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="^4[0-9]{12}(?:[0-9]{3})?$" required />
+                  <input type="text" id="card-number-input" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 outline-none" placeholder="xxxx-xxxx-xxxx-xxxx" pattern="^4[0-9]{12}(?:[0-9]{3})?$" required />
                 </div>
 
                 <div>
@@ -29,7 +29,7 @@ export default function PaymentForm() {
                         />
                       </svg>
                     </div>
-                    <input datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" placeholder="12/23" required />
+                    <input datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 outline-none" placeholder="12/23" required />
                   </div>
                 </div>
                 <div>
@@ -45,11 +45,11 @@ export default function PaymentForm() {
                       <div className="tooltip-arrow" data-popper-arrow></div>
                     </div>
                   </label>
-                  <input type="number" id="cvv-input" aria-describedby="helper-text-explanation" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500" placeholder="•••" required />
+                  <input type="number" id="cvv-input" aria-describedby="helper-text-explanation" className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 outline-none" placeholder="•••" required />
                 </div>
               </div>
 
-              <button type="submit" className="flex w-full items-center justify-center rounded bg-primary-700 px-5 py-2.5 text-sm font-medium text-white border bg-stone-950 hover:bg-transparent hover:text-black hover:border-black focus:outline-none focus:ring-4  focus:ring-primary-300">Add Payment</button>
+              <button type="button" className="flex w-full items-center justify-center rounded bg-primary-700 px-5 py-2.5 text-sm font-medium text-white border bg-stone-950 hover:bg-transparent hover:text-black hover:border-black focus:outline-none">Add Payment</button>
           </form>
         </div>
       </div>
