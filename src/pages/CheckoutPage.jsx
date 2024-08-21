@@ -13,7 +13,7 @@ import CartItemsList from '../components/CheckoutPage/CartItemsList'
 
 
 export default function CheckoutPage() {
-  let [progress, setProgress] = useState(3);
+  let [progress, setProgress] = useState(1);
 
   function handleProgress(prog) {
     setProgress(prog);
@@ -32,7 +32,7 @@ export default function CheckoutPage() {
         {progress === 1 && <AddressBar />}
         {progress === 2 && <PaymentForm />}
         {progress === 2 && <Separator level={3} />}
-        {progress === 2 && <PaymentBar />}
+        {progress === 2 && <PaymentBar handleProgress={handleProgress} />}
         {progress === 3 && <CartItemsList />}
       </div>
       <PriceInfo progress={progress} />

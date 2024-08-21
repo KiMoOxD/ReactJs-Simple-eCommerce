@@ -1,5 +1,5 @@
 
-export default function PaymentBar() {
+export default function PaymentBar({ handleProgress }) {
   return (
     <>
       <p className="text-2xl">Saved Payment</p>
@@ -17,6 +17,7 @@ export default function PaymentBar() {
           <p className="text-xs mb-0.5">Kareem Mohamed</p>
         </div>
       </div>
+      <button type="button" className="px-8 py-1.5 text-white hover:text-black border border-transparent hover:border hover:border-stone-300 transition focus:ring-4 focus:outline-none font-medium rounded-sm text-md w-fit text-center bg-stone-950 hover:bg-transparent" onClick={() => handleProgress(3)}>Next</button>
     </>
   );
 }
