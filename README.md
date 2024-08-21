@@ -63,3 +63,20 @@ To run this project locally, follow these steps:
    ```
 
 5. Visit http://localhost:3000 to view the website in your browser.
+
+---
+
+## 📝 **License**
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/KiMoOxD/ReactJs-Simple-eCommerce/blob/main/LICENSE) file for more details.
+
+---
+
+## 🤝 **Contact**
+
+If you have any questions, suggestions, or feedback, feel free to reach out:
+
+- **Email**: msokoko6@gmail.com
+- **Website**: [Shoopy Live Demo](https://simpleecommerce354.netlify.app/)
+
+---
