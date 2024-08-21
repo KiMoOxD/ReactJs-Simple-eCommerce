@@ -26,11 +26,11 @@ let CartContextProvider = ({ children }) => {
 
     // }
 
-    async function addToCart({id, title, price, thumbnail}, qty=1) {
+    async function addToCart({id, title, price, thumbnail, discount}, qty=1) {
         if (qty <= 0 ) return;
         setCartItems(prev => {
             if (prev.some(item => item.id === id) === false) {
-                return [...prev, {id, title, price, thumbnail, quantity: qty}]
+                return [...prev, {id, title, price, thumbnail, discount, quantity: qty}]
             } else {
                 return [...prev]
             }

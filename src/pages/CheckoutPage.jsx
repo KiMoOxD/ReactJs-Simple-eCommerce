@@ -31,7 +31,7 @@ export default function CheckoutPage() {
         <Separator level={3} />
         {progress === 1 && <AddressBar />}
         {progress === 2 && <PaymentForm />}
-        <Separator level={3} />
+        {progress === 2 && <Separator level={3} />}
         {progress === 2 && <PaymentBar />}
         {progress === 3 && <CartItemsList />}
       </div>

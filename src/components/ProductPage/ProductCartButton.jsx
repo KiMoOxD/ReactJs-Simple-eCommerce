@@ -28,6 +28,7 @@ export default function ProductCartButton({ product }) {
             title: product.title,
             price: product.price,
             thumbnail: product.thumbnail,
+            discount: product.discountPercentage
           },
           qty
         );
