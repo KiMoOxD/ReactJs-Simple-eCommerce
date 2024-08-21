@@ -37,18 +37,4 @@ function App() {
 
 export default App;
 
-// eslint-disable-next-line
-{
-  /* <WishListContextProvider>
-      <CartContextProvider>
-        <MenuContextProvider>
-          <div className="max-w-screen-2xl relative mx-auto" >
-            <Header />
-            <Hero />
-            <Products />
-            <Banner />
-          </div>
-        </MenuContextProvider>
-      </CartContextProvider>
-    </WishListContextProvider> */
-}
+
