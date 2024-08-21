@@ -41,5 +41,25 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/shoopy.git
+   git clone https://github.com/KiMoOxD/ReactJs-Simple-eCommerce.git
    ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd shoopy
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start or npm run start
+   ```
+
+5. Visit http://localhost:3000 to view the website in your browser.
