@@ -1,13 +1,27 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../context/ShoppingCartContext";
 
 export default function PriceInfo({ progress }) {
-  let {cartItems} = useCart()
+  let { cartItems, clearCart } = useCart();
   let totalPrice =
-    cartItems.length > 0 ? cartItems.reduce(
-      (totalPrice, item) => totalPrice + item.price * item.quantity,0).toFixed(2)
+    cartItems.length > 0
+      ? cartItems
+          .reduce(
+            (totalPrice, item) => totalPrice + item.price * item.quantity,
+            0
+          )
+          .toFixed(2)
       : 0;
-  let savings = cartItems.length > 0 ? cartItems.reduce(
-    (totalSavings, item) => totalSavings + (item.price * item.discount) / 100 * item.quantity, 0).toFixed(2)
+  let savings =
+    cartItems.length > 0
+      ? cartItems
+          .reduce(
+            (totalSavings, item) =>
+              totalSavings +
+              ((item.price * item.discount) / 100) * item.quantity,
+            0
+          )
+          .toFixed(2)
       : 0;
 
   return (
@@ -26,7 +40,9 @@ export default function PriceInfo({ progress }) {
           </dl>
 
           <dl class="flex items-center justify-between gap-4">
-            <dt class="text-base font-normal text-gray-500">Delivery Charges</dt>
+            <dt class="text-base font-normal text-gray-500">
+              Delivery Charges
+            </dt>
             <dd class="text-base font-medium text-gray-900">Free</dd>
           </dl>
 
@@ -37,14 +53,30 @@ export default function PriceInfo({ progress }) {
         </div>
 
         <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2">
-          <dt class="text-base font-bold text-gray-900">
-            Total
-          </dt>
+          <dt class="text-base font-bold text-gray-900">Total</dt>
           <dd class="text-base font-bold text-gray-900">
             ${(totalPrice - savings).toFixed(2)}
           </dd>
         </dl>
-        <button className={`border ${progress === 3 && cartItems.length !== 0 ? 'bg-stone-950 text-white hover:text-black hover:bg-transparent hover:border-black' : 'bg-stone-200 text-stone-500 pointer-events-none'}  transition py-2 w-full`}>Pay Now</button>
+        <Link
+          to={"success"}
+          className={`${
+            progress === 3 && cartItems.length !== 0
+              ? ""
+              : "pointer-events-none"
+          }`}
+        >
+          <button
+            className={`border ${
+              progress === 3 && cartItems.length !== 0
+                ? "bg-stone-950 text-white hover:text-black hover:bg-transparent hover:border-black"
+                : "bg-stone-200 text-stone-500 pointer-events-none"
+            }  transition py-2 w-full`}
+            onClick={clearCart}
+          >
+            Pay Now
+          </button>
+        </Link>
       </div>
     </div>
   );

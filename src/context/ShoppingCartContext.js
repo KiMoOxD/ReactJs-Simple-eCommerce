@@ -74,6 +74,9 @@ let CartContextProvider = ({ children }) => {
             return preev
         })
     }
+    function clearCart() {
+        setCartItems([])
+    }
 
 
     return <cartContext.Provider 
@@ -84,7 +87,8 @@ let CartContextProvider = ({ children }) => {
         decreaseQ,
         removeItem,
         isCartOpen,
-        toggleCart
+        toggleCart,
+        clearCart
     }}
     >
         {children}

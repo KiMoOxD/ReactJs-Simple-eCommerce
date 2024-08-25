@@ -7,6 +7,8 @@ import RootLayout from "./components/RootLayout";
 import { loader as ProductsLoader } from "./components/Containers/products";
 import ProductPage, { loader } from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutSuccess from './components/CheckoutPage/CheckoutSuccess'
+import ErrorPage from './components/error'
 
 const router = createBrowserRouter([
   {
@@ -14,11 +16,13 @@ const router = createBrowserRouter([
     id: "root",
     element: <RootLayout />,
     loader: ProductsLoader,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home />, loader: FlashSaleLoader },
       { path: "products" },
       { path: "products/:id", loader: loader, element: <ProductPage /> },
       { path: "checkout", element: <CheckoutPage />},
+      { path: "checkout/success", element: <CheckoutSuccess />},
     ],
   },
 ]);

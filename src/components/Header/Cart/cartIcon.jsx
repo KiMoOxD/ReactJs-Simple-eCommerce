@@ -8,7 +8,7 @@ import { PiShoppingCartLight } from "react-icons/pi";
 export default function CartIcon() {
   let { cartItems, isCartOpen, toggleCart } = useCart();
   let { isWishListOpen, toggleWishListMenu } = useWishList();
-  let { isMenuOpen, toggleMenu } = useGeneralContext();
+  let { isMenuOpen, toggleMenu, isAccountOpen, toggleAccount } = useGeneralContext();
 
   return (
     <div className={`relative p-1 rounded-sm`}>
@@ -16,6 +16,7 @@ export default function CartIcon() {
         onClick={() => {
           if (isWishListOpen) toggleWishListMenu();
           if (isMenuOpen) toggleMenu();
+          if (isAccountOpen) toggleAccount()
           toggleCart();
         }}
       />

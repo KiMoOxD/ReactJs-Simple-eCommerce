@@ -1,4 +1,3 @@
-import { CiUser } from "react-icons/ci";
 import Menu from "./menu";
 import { useGeneralContext } from "../../context/generalContext";
 import SearchBar from "./Search/SearchBar";
@@ -7,6 +6,7 @@ import WishListIcon from "./Wishlist/wishlistIcon";
 import CartIcon from "./Cart/cartIcon";
 import NavLinks from "./NavLinks";
 import SearchIcon from "./Search/searchIcon";
+import AccountIcon from './Account/AccountIcon'
 
 export default function Header() {
   let { isSearchOpen } = useGeneralContext();
@@ -21,7 +21,7 @@ export default function Header() {
       <div className="flex gap-3 text-xl items-center cursor-pointer">
         {!isSearchOpen && <SearchIcon />}
         <WishListIcon />
-        <CiUser />
+        <AccountIcon />
         <CartIcon />
         <Menu />
       </div>

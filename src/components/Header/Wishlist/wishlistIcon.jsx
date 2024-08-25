@@ -6,7 +6,7 @@ import { useGeneralContext } from "../../../context/generalContext";
 
 export default function WishListIcon() {
   let { wishListItems, isWishListOpen, toggleWishListMenu } = useWishList(),
-    { isMenuOpen, toggleMenu } = useGeneralContext(),
+    { isMenuOpen, toggleMenu, isAccountOpen, toggleAccount } = useGeneralContext(),
     { isCartOpen, toggleCart } = useCart();
 
   return (
@@ -15,6 +15,7 @@ export default function WishListIcon() {
         onClick={() => {
           if (isCartOpen) toggleCart();
           if (isMenuOpen) toggleMenu();
+          if (isAccountOpen) toggleAccount()
           toggleWishListMenu();
         }}
       />

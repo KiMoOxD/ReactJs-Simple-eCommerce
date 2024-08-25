@@ -8,14 +8,21 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   let { isCartOpen, toggleCart } = useCart();
   let { isWishListOpen, toggleWishListMenu } = useWishList();
-  let { isMenuOpen, toggleMenu, setIsSearchOpen, setSearchResult } =
-    useGeneralContext();
+  let {
+    isMenuOpen,
+    toggleMenu,
+    isAccountOpen,
+    toggleAccount,
+    setIsSearchOpen,
+    setSearchResult,
+  } = useGeneralContext();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     if (isCartOpen) toggleCart();
     if (isWishListOpen) toggleWishListMenu();
     if (isMenuOpen) toggleMenu();
+    if (isAccountOpen) toggleAccount();
     setIsSearchOpen(false);
     setSearchResult({ isActive: false, items: [] });
     // eslint-disable-next-line
