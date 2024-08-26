@@ -9,6 +9,9 @@ import ProductPage, { loader } from "./pages/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccess from './components/CheckoutPage/CheckoutSuccess'
 import ErrorPage from './components/error'
+import LoginPage from './components/LoginPage'
+import RegisterPage from './components/RegisterPage'
+
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,8 @@ const router = createBrowserRouter([
       { path: "products/:id", loader: loader, element: <ProductPage /> },
       { path: "checkout", element: <CheckoutPage />},
       { path: "checkout/success", element: <CheckoutSuccess />},
+      { path: "login", element: <LoginPage />},
+      { path: "register", element: <RegisterPage />},
     ],
   },
 ]);

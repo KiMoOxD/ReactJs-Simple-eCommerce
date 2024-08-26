@@ -6,11 +6,13 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { PiUserCircle } from "react-icons/pi";
 import { SlPresent } from "react-icons/sl";
 import { IoExitOutline } from "react-icons/io5";
+import { useGeneralContext } from "../../../context/generalContext";
 
 
 
 
 export default function AccountMenu() {
+  let { logout } = useGeneralContext()
   return (
     <div className="absolute top-[200%] right-0 border py-4 px-3 w-[300px] h-fit backdrop-blur rounded">
       <div className="flex items-center gap-3">
@@ -47,7 +49,7 @@ export default function AccountMenu() {
           <span>7 Invitation Remaining</span>
         </p>
       </div>
-      <div className="py-1.5 px-3 mt-0.5 flex gap-2 items-center text-sm text-white hover:bg-white/10 rounded mb-2">
+      <div onClick={logout} className="py-1.5 px-3 mt-0.5 flex gap-2 items-center text-sm text-white hover:bg-white/10 rounded mb-2">
         <IoExitOutline />
         <p className="flex-grow">Sign Out</p>
       </div>
